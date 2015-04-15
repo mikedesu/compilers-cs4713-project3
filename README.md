@@ -12,6 +12,7 @@ To execute, execute './parser < file.in', where 'file.in' is your input source f
 ||modified grammar||
 --------------------
 
+```
 program 	::=	funcdefn
 funcdefn 	::=	type ID LPARAN RPARAN stmtBlock
 
@@ -34,4 +35,4 @@ expB		::=	< expA expB | > expA expB | == expA expB | + expA expB |
 expC		::=	ID | ICONST | FCONST | -exp | (exp)
 expD		::=	* expC expD | / expC expD | epsilon
 
-	
+```	
