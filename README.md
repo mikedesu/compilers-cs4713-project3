@@ -14,6 +14,7 @@ To execute, execute './parser < file.in', where 'file.in' is your input source f
 
 ```
 program 	::=	funcdefn
+
 funcdefn 	::=	type ID LPARAN RPARAN stmtBlock
 
 stmt 		::=	typeDecl SEMICOLON |
@@ -22,17 +23,32 @@ stmt 		::=	typeDecl SEMICOLON |
 			IF LPARAN exp RPARAN stmt stmtA |
 			stmtBlock |
 			epsilon
+
 stmtA		::=	ELSE stmt | epsilon
-stmtList 	::= 	stmt stmtList | epsilon
-stmtBlock 	::= 	LBRACE stmt RBRACE
-typeDecl 	::= 	type ID
+
+stmtList 	::= stmt stmtList | epsilon
+
+stmtBlock 	::= LBRACE stmt RBRACE
+
+typeDecl 	::= type ID
+
 type		::=	INT | FLOAT
 
-exp		::=	expA expB
+exp		    ::= expA expB
+
 expA		::=	expC expD
-expB		::=	< expA expB | > expA expB | == expA expB | + expA expB | 
-			- expA expB | epsilon
+
+expB		::=	< expA expB | 
+                > expA expB | 
+                == expA expB | 
+                + expA expB | 
+                - expA expB | 
+                epsilon
+
 expC		::=	ID | ICONST | FCONST | -exp | (exp)
-expD		::=	* expC expD | / expC expD | epsilon
+
+expD		::=	* expC expD | 
+                / expC expD | 
+                epsilon
 
 ```	
